@@ -29,7 +29,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <act.version>1.4.4</act.version>
-        <app.entry>demo.todo.jfinal.AppEntry</app.entry>
+        <app.entry>demo.Main</app.entry>
     </properties>
 
     <licenses>

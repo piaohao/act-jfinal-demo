@@ -55,7 +55,7 @@
     <appender-ref ref="METRIC_FILE" />
   </logger>
 
-  <logger name="demo.todo.jfinal.AppEntry" level="DEBUG" additivity="false">
+  <logger name="demo.Main" level="DEBUG" additivity="false">
     <appender-ref ref="STDOUT" />
   </logger>
 

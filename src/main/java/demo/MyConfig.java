@@ -1,4 +1,4 @@
-package demo.todo.jfinal;
+package demo;
 
 import act.Act;
 import act.conf.AppConfig;
@@ -7,7 +7,7 @@ import com.alibaba.druid.filter.stat.StatFilter;
 import com.alibaba.druid.wall.WallFilter;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.druid.DruidPlugin;
-import demo.todo.jfinal.model.Account;
+import demo.model.Account;
 
 public class MyConfig {
 
@@ -34,4 +34,5 @@ public class MyConfig {
         dp.start();
         arp.start();
     }
+    
 }

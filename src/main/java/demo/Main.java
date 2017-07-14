@@ -1,10 +1,10 @@
-package demo.todo.jfinal;
+package demo;
 
 import act.Act;
 import act.app.data.StringValueResolverManager;
 import act.controller.annotation.UrlContext;
 import act.inject.DefaultValue;
-import demo.todo.jfinal.model.Account;
+import demo.model.Account;
 import org.osgl.$;
 import org.osgl.mvc.annotation.*;
 import org.piaohao.act.jfinal.db.JFinalTransactional;
@@ -17,7 +17,7 @@ import static act.controller.Controller.Util.notFoundIfNull;
  * A Simple application demonstrate how to integrate JFinal template and db layer into ActFramework
  */
 @UrlContext("/accounts")
-public class AppEntry {
+public class Main {
 
     @GetAction
     public List<Account> list() {
@@ -61,7 +61,7 @@ public class AppEntry {
     }
 
     public static void main(String[] args) throws Exception {
-        Act.start("TODO-JFinal");
+        Act.start("ACT-JFinal-Demo");
     }
 
 }
