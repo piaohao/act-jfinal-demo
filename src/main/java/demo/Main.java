@@ -120,6 +120,12 @@ public class Main {
      * PUT /accounts/123/password?value=zhang-san
      * PUT /accounts/123/age?value=18&type=int
      * ```
+     *
+     * # passing all params in query parameter is also okay, easy for front end to serialize entire js object:
+     *
+     * ```
+     * PUT /accounts?id=123&field=age&value=18&type=int
+     * ```
      */
     @PutAction("{id}/{field}")
     @With(JFinalTransactional.class)
