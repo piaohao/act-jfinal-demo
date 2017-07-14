@@ -1,5 +1,6 @@
 package demo.todo.jfinal;
 
+import act.job.OnAppStart;
 import com.alibaba.druid.filter.stat.StatFilter;
 import com.alibaba.druid.wall.WallFilter;
 import com.jfinal.kit.PropKit;
@@ -9,25 +10,24 @@ import demo.todo.jfinal.model.Account;
 
 public class MyConfig {
 
+    @OnAppStart
     public static void init() {
-        {
-            PropKit.use("common.properties");
-            DruidPlugin dp = new DruidPlugin(PropKit.get("jdbc.master.url"), PropKit.get(
-                    "jdbc.master.username"), PropKit.get("jdbc.master.password"));
-            dp.setTestOnBorrow(true);
-            dp.setTestWhileIdle(true);
-            dp.setTestOnReturn(true);
-            dp.addFilter(new StatFilter());
-            WallFilter wall = new WallFilter();
-            wall.setDbType("mysql");
-            dp.addFilter(wall);
+        PropKit.use("common.properties");
+        DruidPlugin dp = new DruidPlugin(PropKit.get("jdbc.master.url"), PropKit.get(
+                "jdbc.master.username"), PropKit.get("jdbc.master.password"));
+        dp.setTestOnBorrow(true);
+        dp.setTestWhileIdle(true);
+        dp.setTestOnReturn(true);
+        dp.addFilter(new StatFilter());
+        WallFilter wall = new WallFilter();
+        wall.setDbType("mysql");
+        dp.addFilter(wall);
 
-            ActiveRecordPlugin arp = new ActiveRecordPlugin(dp);
-            arp.setShowSql(PropKit.getBoolean("devMode", true));
-            // 所有配置在 MappingKit 中搞定
-            arp.addMapping("account", "id", Account.class);
-            dp.start();
-            arp.start();
-        }
+        ActiveRecordPlugin arp = new ActiveRecordPlugin(dp);
+        arp.setShowSql(PropKit.getBoolean("devMode", true));
+        // 所有配置在 MappingKit 中搞定
+        arp.addMapping("account", "id", Account.class);
+        dp.start();
+        arp.start();
     }
 }

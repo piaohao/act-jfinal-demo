@@ -31,14 +31,8 @@ public class Todo {
         return renderJson("yes");
     }
 
-    @OnAppStart
-    public static void onAppStart() {
-        MyConfig.init();
-    }
-
     public static void main(String[] args) throws Exception {
         Act.start("TODO-JFinal");
     }
-
 
 }
